@@ -1,4 +1,10 @@
-mkdir ~/.config/nvim
+if [ ! -d ~/.config/nvim ]; then
+    mkdir ~/.config/nvim
+fi
+
+cd ~/.config/config
+git pull
+
 ln -s -f ~/.config/config/.zshrc ~/.zshrc
 ln -s -f ~/.config/config/.tmux.conf ~/.tmux.conf
 ln -s -f ~/.config/config/.p10k.zsh ~/.p10k.zsh
