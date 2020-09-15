@@ -1,9 +1,16 @@
+#!/bin/bash
 if [ ! -d ~/.config/nvim ]; then
     mkdir ~/.config/nvim
 fi
 
 cd ~/.config/config
-git pull
+
+if [ x$1 == "x--no-git-update" ]; then
+    echo
+else
+    git pull
+fi
+
 
 ln -s -f ~/.config/config/.zshrc ~/.zshrc
 ln -s -f ~/.config/config/.tmux.conf ~/.tmux.conf
