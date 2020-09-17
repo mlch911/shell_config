@@ -16,7 +16,7 @@ filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
-"set mouse=a
+set mouse=a
 set encoding=utf-8
 let &t_ut=''
 set expandtab
@@ -38,7 +38,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=50
+" set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c

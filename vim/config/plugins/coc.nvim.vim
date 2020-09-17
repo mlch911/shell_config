@@ -27,8 +27,8 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
-nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+nmap <silent> <LEADER>[ <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>] <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -61,7 +61,9 @@ xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
 
-" coc-explorer
+""""""""""""""""
+""" coc-explorer
+""""""""""""""""
 if g:HasCocPlug('coc-explorer')
     let g:coc_explorer_global_presets = {
         \   '.vim': {

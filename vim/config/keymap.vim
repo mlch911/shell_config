@@ -4,16 +4,16 @@ let mapleader=" "
 noremap j h
 noremap J H
 noremap k j
-noremap K 5j
+"noremap K 5j
 noremap i k
-noremap I 5k
+"noremap I 5k
 noremap h i
 noremap H I
 
 " 搜索
 exec "nohlsearch"
-noremap = nzz
-noremap - Nzz
+nmap = nzz
+nmap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR>
 
 " Vim操作
