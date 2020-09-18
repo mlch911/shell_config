@@ -215,10 +215,12 @@ zstyle ':auto-fu:var' postdisplay $'\n-azfu-'
 zle-line-init () {auto-fu-init;}; zle -N zle-line-init
 
 #alais
-alias mtr='sudo mtr'
-alias lc='colorls -lA --sd'
-alias myip='curl www.trackip.net/ip'
+alias ls='colorls'
+alias lc='ls -l --sd'
 alias ll='lc'
+alias lll='ls -lA --sd'
+alias mtr='sudo mtr'
+alias myip='curl www.trackip.net/ip'
 alias vim='nvim'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

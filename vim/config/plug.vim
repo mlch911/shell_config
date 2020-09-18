@@ -51,6 +51,9 @@ Plug 'kshenoy/vim-signature'
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
 
+" 剪切板
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
 
 " Other useful utilities
 Plug 'terryma/vim-multiple-cursors'
