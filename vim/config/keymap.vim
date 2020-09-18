@@ -2,11 +2,13 @@ let mapleader=" "
 
 " 方向键
 noremap j h
-noremap J H
 noremap k j
-"noremap K 5j
 noremap i k
-"noremap I 5k
+vmap    K 5k
+vmap    I 5i
+nnoremap J ^
+nmap L $
+
 noremap h i
 noremap H I
 

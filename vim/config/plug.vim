@@ -68,6 +68,9 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'fadein/vim-FIGlet'
 
+" Swift
+Plug 'keith/swift.vim'
+
 " coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-json',
@@ -78,4 +81,6 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-git',
     \ 'coc-explorer',
+    \ 'coc-prettier',
+	\ 'coc-snippets',
     \ ]

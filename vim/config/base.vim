@@ -19,12 +19,13 @@ filetype plugin indent on
 set mouse=a
 set encoding=utf-8
 let &t_ut=''
-set expandtab
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set list
 set listchars=tab:▸\ ,trail:▫
+set scroll=15
 set scrolloff=5
 set tw=0
 set indentexpr=

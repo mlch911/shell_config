@@ -216,9 +216,9 @@ zle-line-init () {auto-fu-init;}; zle -N zle-line-init
 
 #alais
 alias ls='colorls'
-alias lc='ls -l --sd'
+alias lc='ls -l --sd --gs'
 alias ll='lc'
-alias lll='ls -lA --sd'
+alias lll='ls -lA --sd --gs'
 alias mtr='sudo mtr'
 alias myip='curl www.trackip.net/ip'
 alias vim='nvim'
