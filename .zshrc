@@ -222,6 +222,8 @@ alias lll='ls -lA --sd --gs'
 alias mtr='sudo mtr'
 alias myip='curl www.trackip.net/ip'
 alias vim='nvim'
+alias v='vim'
+alias ra='ranger'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

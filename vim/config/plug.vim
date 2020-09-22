@@ -83,4 +83,5 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-prettier',
 	\ 'coc-snippets',
+	\ 'coc-yaml',
     \ ]
