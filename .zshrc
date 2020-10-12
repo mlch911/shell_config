@@ -236,3 +236,4 @@ export GIT_EDITOR=vim
 
 # machine_specific
 [ -f "$HOME/.config/config/.zshrc_machine_specific" ] && source "$HOME/.config/config/.zshrc_machine_specific"
+[ -f "$HOME/.zshrc_machine_specific" ] && source "$HOME/.zshrc_machine_specific"
