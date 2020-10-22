@@ -38,10 +38,6 @@ set autochdir
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 set clipboard=unnamed
 
-" Having Color Issue using mosh. Because Mosh 1.3.2 doesn't support true(24-bit) colors. 
-" You should disable true color.
-set notermguicolors
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=1
