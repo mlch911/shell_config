@@ -6,6 +6,8 @@ noremap k j
 noremap i k
 vmap    K 5k
 vmap    I 5i
+vmap	J ^
+vmap	L $
 nnoremap J ^
 nmap L $
 

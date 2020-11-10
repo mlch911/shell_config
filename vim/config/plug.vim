@@ -73,15 +73,15 @@ Plug 'keith/swift.vim'
 
 " coc.nvim
 let g:coc_global_extensions = [
-    \ 'coc-json',
-    \ 'coc-vimlsp',
-    \ 'coc-marketplace',
-    \ 'coc-actions',
-    \ 'coc-sh',
-    \ 'coc-prettier',
-    \ 'coc-git',
-    \ 'coc-explorer',
-    \ 'coc-prettier',
+	\ 'coc-json',
+	\ 'coc-vimlsp',
+	\ 'coc-marketplace',
+	\ 'coc-actions',
+	\ 'coc-sh',
+	\ 'coc-prettier',
+	\ 'coc-git',
+	\ 'coc-explorer',
+	\ 'coc-prettier',
 	\ 'coc-snippets',
 	\ 'coc-yaml',
-    \ ]
+	\ ]
