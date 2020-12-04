@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH:/usr/local/sbin
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Antigen: https://github.com/zsh-users/antigen
@@ -171,8 +171,6 @@ bindkey '\ev' deer
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
-alias ll='ls -l'
-
 
 # options
 unsetopt correct_all
@@ -188,6 +186,7 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY # Don't execute immediately upon history expansion.
+setopt no_nomatch				# Remove error: zsh: no matches found
 
 
 # source function.sh if it exists
@@ -223,6 +222,7 @@ alias mtr='sudo mtr'
 alias myip='curl www.trackip.net/ip'
 alias vim='nvim'
 alias v='vim'
+alias vd=VimDirectory
 alias ra='ranger'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -238,3 +238,11 @@ export GIT_EDITOR=vim
 # machine_specific
 [ -f "$HOME/.config/config/.zshrc_machine_specific" ] && source "$HOME/.config/config/.zshrc_machine_specific"
 [ -f "$HOME/.zshrc_machine_specific" ] && source "$HOME/.zshrc_machine_specific"
+
+VimDirectory() {
+	dir=$(echo $1 | grep -oP '.*(?=\/.*$)')
+	if [ ! -f $dir ]; then
+		mkdir -p $dir
+	fi
+	vim $1
+}
