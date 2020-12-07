@@ -50,9 +50,9 @@ if g:HasCocPlug('coc-explorer')
       " "\ 'a': v:false,
     call coc#config("explorer.keyMappings.global", {
         \ 'i': 'nodePrev',
-        \ 'I': '5-nodePrev',
+        \ 'I': 'normal:5i',
         \ 'k': 'nodeNext',
-        \ 'K': '5-nodeNext',
+        \ 'K': 'normal:5k',
         \ 'j': 'collapse',
         \ 'l': ['expandable?', 'expand', 'open'],
         \ 'L': 'expand:recursive',
