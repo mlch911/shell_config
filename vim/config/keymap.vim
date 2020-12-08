@@ -4,8 +4,8 @@ let mapleader=" "
 noremap j h
 noremap k j
 noremap i k
-vmap    K 5k
-vmap    I 5i
+vmap	K 5k
+vmap	I 5i
 vmap	J ^
 vmap	L $
 nnoremap J ^
@@ -21,10 +21,10 @@ nmap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR>
 
 " Vim操作
-map R :source $MYVIMRC<CR>
-map S :w<CR>
-map s <nop>
-map Q :q<CR>
+nmap R :source $MYVIMRC<CR>
+nmap S :w<CR>
+nmap s <nop>
+nmap Q :q<CR>
 
 " Open the vimrc file anytime
 noremap <LEADER>rc :tabe ~/.config/nvim/init.vim<CR>
@@ -46,9 +46,15 @@ map <LEADER>j <C-w>h
 map <LEADER>k <C-w>j
 map <LEADER>i <C-w>k
 
-map <LEADER><up> :res +5<CR>
-map <LEADER><down> :res -5<CR>
-map <LEADER><left> :vertical resize-5<CR>
-map <LEADER><right> :vertical resize+5<CR>
+map <silent><LEADER><up> :res +5<CR>
+map <silent><LEADER><down> :res -5<CR>
+map <silent><LEADER><left> :vertical resize-5<CR>
+map <silent><LEADER><right> :vertical resize+5<CR>
 
 imap <C-c> <Esc>
+nmap <LEADER>b :TagbarOpenAutoClose<CR>
+
+" Symbol renaming.
+nmap <leader>rn :CocCommand document.renameCurrentWord<CR>
+
+nmap <leader>a :CocCommand<CR>

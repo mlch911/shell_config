@@ -51,11 +51,21 @@ func! g:HasInstall(plugin_name) abort
     else | return v:false | endif
 endfunction
 
+" 判断是否安装了coc插件
 func! g:HasCocPlug(cocPlugName)
-    " 判断是否安装了coc插件
     if g:HasPlug('coc.nvim') && index(g:coc_global_extensions, a:cocPlugName) > -1 | return v:true
     else | return v:false | endif
 endfunc
+
+" 自动安装插件
+func! s:is_need_install()
+	for l:plug_name in g:plugs_order
+		let l:plug_path = g:plugins_path.'/'.l:plug_name
+		if !isdirectory(l:plug_path)
+			return 1
+		endif
+    endfor
+endfunction
 
 for s:plugin_name in g:plugs_order
     " 如果已经安装了插件，那么载入插件配置
@@ -74,16 +84,6 @@ let s:custom_files = split(glob(s:custom_config_home . '/*.vim'), '\n')
 for s:custom_file in s:custom_files
     exec 'source ' . fnameescape(s:custom_file)
 endfor
-
-" 自动安装插件
-func! s:is_need_install()
-	for l:plug_name in g:plugs_order
-		let l:plug_path = g:plugins_path.'/'.l:plug_name
-		if !isdirectory(l:plug_path)
-			return 1
-		endif
-    endfor
-endfunction
 
 if s:is_need_install()
 	echom "Found new plugin(s) need to install."

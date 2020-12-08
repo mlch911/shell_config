@@ -88,13 +88,17 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle Vifon/deer
 antigen bundle valentinocossar/vscode
 
-antigen bundle willghatch/zsh-cdr
 antigen bundle zsh-users/zaw
 
 # uncomment the line below to enable theme
 # antigen theme agnoster
 POWERLEVEL9K_MODE="nerdfont-complete"
 antigen theme romkatv/powerlevel10k
+
+# enable syntax highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
 
 
 # check login shell
@@ -137,11 +141,6 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 [ -f "$HOME/.local/etc/config.zsh" ] && source "$HOME/.local/etc/config.zsh"
 [ -f "$HOME/.local/etc/local.zsh" ] && source "$HOME/.local/etc/local.zsh"
 
-# enable syntax highlighting
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen apply
-
 # setup for deer
 autoload -U deer
 zle -N deer
@@ -166,7 +165,7 @@ bindkey '\e[1;3C' forward-word
 bindkey '\e[1;3A' beginning-of-line
 bindkey '\e[1;3B' end-of-line
 
-bindkey '\ev' deer
+bindkey '^k' deer
 
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
