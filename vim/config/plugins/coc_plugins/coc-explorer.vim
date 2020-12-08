@@ -71,7 +71,7 @@ if g:HasCocPlug('coc-explorer')
         \ 'D': 'delete',
         \ 'P': 'pasteFile',
         \ 'R': 'rename',
-        \ 'N': 'addFile',
+        \ 'a': 'addFile',
         \ 'yp': 'copyFilepath',
         \ 'yn': 'copyFilename',
         \ 'gp': 'preview:labeling',
