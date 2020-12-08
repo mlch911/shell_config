@@ -52,7 +52,7 @@ map <silent><LEADER><left> :vertical resize-5<CR>
 map <silent><LEADER><right> :vertical resize+5<CR>
 
 imap <C-c> <Esc>
-nmap <LEADER>b :TagbarOpenAutoClose<CR>
+nmap <silent><LEADER>b :TagbarOpenAutoClose<CR>
 
 " Symbol renaming.
 nmap <leader>rn :CocCommand document.renameCurrentWord<CR>
