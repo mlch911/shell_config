@@ -69,7 +69,6 @@ antigen bundle npm
 antigen bundle pip
 antigen bundle svn-fast-info
 antigen bundle command-not-find
-
 antigen bundle pod
 antigen bundle colorize
 antigen bundle github
@@ -77,10 +76,12 @@ antigen bundle python
 antigen bundle rupa/z z.sh
 antigen bundle z
 antigen bundle sudo
-antigen bundle command-not-found
 antigen bundle safe-paste
 antigen bundle colored-man-pages
 antigen bundle history-substring-search
+antigen bundle gem
+antigen bundle ruby
+antigen bundle node
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -211,6 +212,7 @@ zstyle ':auto-fu:highlight' input bold
 zstyle ':auto-fu:highlight' completion fg=black,bold
 zstyle ':auto-fu:var' postdisplay $'\n-azfu-'
 zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+zstyle ':auto-fu:var' autoable-function/skiplbuffers 'gem install*'
 
 #alais
 alias ls='colorls'

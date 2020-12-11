@@ -4,15 +4,15 @@ let mapleader=" "
 noremap j h
 noremap k j
 noremap i k
-vmap	K 5k
-vmap	I 5i
+noremap h i
+noremap H I
+
+vmap    K 5k
+vmap    I 5i
 vmap	J ^
 vmap	L $
 nnoremap J ^
 nmap L $
-
-noremap h i
-noremap H I
 
 " 搜索
 exec "nohlsearch"
