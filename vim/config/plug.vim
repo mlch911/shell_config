@@ -57,11 +57,13 @@ Plug 'roxma/vim-tmux-clipboard'
 
 " Other useful utilities
 Plug 'mg979/vim-visual-multi'
-Plug 'junegunn/goyo.vim' " distraction free writing mode
-Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
-Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
-Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
+Plug 'junegunn/goyo.vim'		" distraction free writing mode
+Plug 'tpope/vim-surround'		" type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'godlygeek/tabular'		" type ;Tabularize /= to align the =
+Plug 'gcmt/wildfire.vim'		" in Visual mode, type i' to select all text in '', or type i) i] i} ip
+Plug 'scrooloose/nerdcommenter'	" in <space>cc to comment a line
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }	" 快速检索
+Plug 'dkprice/vim-easygrep'		" Vim下的Grep
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
