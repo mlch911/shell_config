@@ -203,10 +203,12 @@ DEFAULT_USER="mlch911"
 # Disable update prompt and update silently
 disable_update_prompt="true"
 
-# source incr if it exists
-#[ -f $HOME/.oh-my-zsh/plugins/incr/incr*.zsh ] && source $HOME/.oh-my-zsh/plugins/incr/incr*.zsh
-## auto-fu.zsh stuff.
-# source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh
+# auto-fu
+if [ ! -d ~/.oh-my-zsh/custom/plugins ]; then
+	mkdir ~/.oh-my-zsh/custom/plugins
+	git clone https://github.com/hchbaw/auto-fu.zsh.git ~/.oh-my-zsh/custom/plugins/auto-fu
+	sh -c 'A=~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; (zsh -c "source $A ; auto-fu-zcompile $A ~/.zsh")'
+fi
 { . ~/.zsh/auto-fu; auto-fu-install; }
 zstyle ':auto-fu:highlight' input bold
 zstyle ':auto-fu:highlight' completion fg=black,bold
@@ -214,7 +216,7 @@ zstyle ':auto-fu:var' postdisplay $'\n-azfu-'
 zle-line-init () {auto-fu-init;}; zle -N zle-line-init
 zstyle ':auto-fu:var' autoable-function/skiplbuffers 'gem install*'
 
-#alais
+#alias
 alias ls='colorls'
 alias lc='ls -l --sd --gs'
 alias ll='lc'
