@@ -48,7 +48,7 @@ _INIT_SH_NOFUN=1
 [ -f "$HOME/.local/etc/init.sh" ] && source "$HOME/.local/etc/init.sh"
 
 # exit for non-interactive shell
-[[ $- != *i* ]] && return
+#[[ $- != *i* ]] && return
 
 # WSL (aka Bash for Windows) doesn't work well with BG_NICE
 [ -d "/mnt/c" ] && [[ "$(uname -a)" == *Microsoft* ]] && unsetopt BG_NICE
@@ -138,10 +138,6 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[assign]=none
 
-# load local config
-[ -f "$HOME/.local/etc/config.zsh" ] && source "$HOME/.local/etc/config.zsh"
-[ -f "$HOME/.local/etc/local.zsh" ] && source "$HOME/.local/etc/local.zsh"
-
 # setup for deer
 autoload -U deer
 zle -N deer
@@ -213,8 +209,9 @@ fi
 zstyle ':auto-fu:highlight' input bold
 zstyle ':auto-fu:highlight' completion fg=black,bold
 zstyle ':auto-fu:var' postdisplay $'\n-azfu-'
-zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+#zle-line-init () {auto-fu-init;}; zle -N zle-line-init
 zstyle ':auto-fu:var' autoable-function/skiplbuffers 'gem install*'
+zstyle ':auto-fu:var' autoable-function/skiplbuffers 'mosh *ssh*'
 
 #alias
 alias ls='colorls'
@@ -227,6 +224,9 @@ alias vim='nvim'
 alias v='vim'
 alias vd=VimDirectory
 alias ra='ranger'
+alias mosh9='mosh --ssh="ssh -p 9999"'
+alias lg='lazygit'
+alias ssh9='ssh -p 9999'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 [ -f "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
@@ -241,6 +241,12 @@ export GIT_EDITOR=vim
 # machine_specific
 [ -f "$HOME/.config/config/.zshrc_machine_specific" ] && source "$HOME/.config/config/.zshrc_machine_specific"
 [ -f "$HOME/.zshrc_machine_specific" ] && source "$HOME/.zshrc_machine_specific"
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_COMPLETION_TRIGGER='\'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 VimDirectory() {
 	dir=$(echo $1 | grep -oP '.*(?=\/.*$)')

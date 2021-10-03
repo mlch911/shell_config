@@ -1,7 +1,7 @@
 let g:VIM_HOME = expand('~/.config/nvim')
 
 " 配置所在根目录
-let g:config_root_path = expand('<sfile>:p:h') . '/config'
+let g:config_root_path = g:VIM_HOME . '/config'
 " vim插件安装目录
 let g:plugins_path = g:VIM_HOME . '/plugged'
 " coc插件安装目录
