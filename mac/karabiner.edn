@@ -1,0 +1,62 @@
+{:templates {:launch     "osascript -e 'tell application \"Alfred 4\" to run trigger \"launch%s\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'"
+             :alf        "open /Applications/Alfred\\ 4.app && osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\"'"
+             :km         "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+             :kma        "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Activate%s\"'"
+             :open       "open \"%s\""
+             :opena      "open -a \"%s\""
+             :show       "osascript -e 'set appName to \"%s\"\nset startIt to false\ntell application \"System Events\"\n  if not (exists process appName) then\n    set startIt to true\n  else\n    set frontmost of process appName to true\n  end if\nend tell\nif startIt then\n  tell application appName to activate\nend if'\n"
+             :toggle     "osascript -e 'set appName to \"%s\"\nset startIt to false\ntell application \"System Events\"\n  if not (exists process appName) then\n    set startIt to true\n  else if frontmost of process appName then\n    set visible of process appName to false\n  else\n    set frontmost of process appName to true\n  end if\nend tell\nif startIt then\n  tell application appName to activate\nend if'"
+             :type       "osascript -e 'tell application \"System Events\" to keystroke \"%s\" as text'"
+             ;; :focus      "/usr/local/bin/yabai -m display --focus \"%s\" & /usr/local/bin/yabai -m space --focus \"%s\""
+             :hs "open -g hammerspoon://%s"
+             :hsa "open -g hammerspoon://launchOrHide?name=%s"}
+ :main
+ [{:des "Space_Fn"
+   :rules [[:##spacebar ["fn-mode" 1] nil {:afterup ["fn-mode" 0]
+                                           :alone :spacebar}]
+           ; delete
+           [:delete_or_backspace :delete_forward :fn-mode]
+
+           ; 方向键
+           [:!Ti [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow] :fn-mode]
+           [:!Tk [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow] :fn-mode]
+           [:##i :up_arrow :fn-mode]
+           [:##k :down_arrow :fn-mode]
+           [:##j :left_arrow :fn-mode]
+           [:##l :right_arrow :fn-mode]
+
+          ; 切换输入法
+           [:tab :!Cspacebar :fn-mode]
+          ; 打开App
+          ;;  [:w :!TCw :fn-mode]
+           [:w [:hsa Wechat] :fn-mode]
+           [:z [:hsa mqq] :fn-mode]
+           [:t [:hsa Telegram] :fn-mode]
+           [:e [:hsa DingTalk] :fn-mode]
+           [:f [:hsa PathFinder] :fn-mode]
+
+          ; Window Manage
+          ;;  [:1 :!Tup_arrow :fn-mode]
+          ;;  [:2 :!Tdown_arrow :fn-mode]
+
+          ; Media Control
+           [:n :play_or_pause :fn-mode]
+           [:m :mute :fn-mode]
+           [:comma :rewind :fn-mode]
+           [:period :fastforward :fn-mode]
+           [:up_arrow :volume_increment :fn-mode]
+           [:down_arrow :volume_decrement :fn-mode]
+
+          ; 数字 -> F区
+           [:1 :f1 :fn-mode]
+           [:2 :f2 :fn-mode]
+           [:3 :f3 :fn-mode]
+           [:4 :f4 :fn-mode]
+           [:5 :f5 :fn-mode]
+           [:6 :f6 :fn-mode]
+           [:7 :f7 :fn-mode]
+           [:8 :f8 :fn-mode]
+           [:9 :f9 :fn-mode]
+           [:0 :f10 :fn-mode]
+           [:hyphen :f11 :fn-mode]
+           [:equal_sign :f12 :fn-mode]]}]}
