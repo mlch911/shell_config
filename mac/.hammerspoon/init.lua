@@ -63,7 +63,13 @@ config.applications = {
 	},
 	["Telegram"] = {
 		bundleID = 'com.tdesktop.Telegram',
-	}
+	},
+	["FeiShu"] = {
+		bundleID = 'com.electron.lark',
+	},
+	["iTerm2"] = {
+		bundleID = 'com.googlecode.iterm2',
+	},
 }
 
 config.domains = {
@@ -103,6 +109,8 @@ config.funcs = {}
 -- hyper:bindKey({}, 'i', {}, 'up')
 -- hyper:bindKey({}, 'k', {}, 'down')
 
+hs.logger.defaultLogLevel = 'debug'
+
 hs.urlevent.bind('launchOrHide', function (eventName, params)
 	local app_bundle_id = config.applications[params["name"]].bundleID
 	local app = hs.application.get(app_bundle_id)
@@ -111,7 +119,10 @@ hs.urlevent.bind('launchOrHide', function (eventName, params)
 		hs.application.open(app_bundle_id)
 	elseif app:isFrontmost() and #app:visibleWindows() > 0 then
 		app:hide()
+		sleep(0.1)
 		if not app:isHidden() then
+			hs.dialog.blockAlert('message', 'informativeText')
+			hs.logger:d(app:name() + ' doesn\'t hide, close it now !')
 			for _, window in pairs(app:allWindows()) do
 				window:close()
 			end
@@ -120,3 +131,17 @@ hs.urlevent.bind('launchOrHide', function (eventName, params)
 		hs.application.launchOrFocusByBundleID(app:bundleID())
 	end
 end)
+
+function sleep (a) 
+    local sec = tonumber(os.clock() + a); 
+    while (os.clock() < sec) do 
+    end 
+end
+
+function wait(time)
+	if tonumber(time) ~= nil then
+		os.execute("Sleep "..tonumber(time))
+	else
+		Zos.execute("Sleep "..tonumber("0.1"))
+	end
+end

@@ -42,6 +42,8 @@ export PS1="%n@%m:%~%# "
 # Enable 256 color to make auto-suggestions look nice
 export TERM="xterm-256color"
 
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Load local bash/zsh compatible settings
 _INIT_SH_NOFUN=1
@@ -214,10 +216,10 @@ zstyle ':auto-fu:var' autoable-function/skiplbuffers 'gem install*'
 zstyle ':auto-fu:var' autoable-function/skiplbuffers 'mosh *ssh*'
 
 #alias
-alias ls='colorls'
-alias lc='ls -l --sd --gs'
+#alias ls='colorls'
+alias lc='colorls -l --sd --gs'
 alias ll='lc'
-alias lll='ls -lA --sd --gs'
+alias lll='colorls -lA --sd --gs'
 alias mtr='sudo mtr'
 alias myip='curl www.trackip.net/ip'
 alias vim='nvim'
@@ -238,10 +240,6 @@ alias ssh9='ssh -p 9999'
 # Git
 export GIT_EDITOR=vim
 
-# machine_specific
-[ -f "$HOME/.config/config/.zshrc_machine_specific" ] && source "$HOME/.config/config/.zshrc_machine_specific"
-[ -f "$HOME/.zshrc_machine_specific" ] && source "$HOME/.zshrc_machine_specific"
-
 # fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_COMPLETION_TRIGGER='\'
@@ -255,3 +253,7 @@ VimDirectory() {
 	fi
 	vim $1
 }
+
+# machine_specific
+[ -f "$HOME/.config/config/.zshrc_machine_specific" ] && source "$HOME/.config/config/.zshrc_machine_specific"
+[ -f "$HOME/.zshrc_machine_specific" ] && source "$HOME/.zshrc_machine_specific"

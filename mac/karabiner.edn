@@ -31,9 +31,11 @@
           ;;  [:w :!TCw :fn-mode]
            [:w [:hsa Wechat] :fn-mode]
            [:z [:hsa mqq] :fn-mode]
-           [:t [:hsa Telegram] :fn-mode]
+          ;;  [:t [:hsa Telegram] :fn-mode]
+           [:t [:hsa iTerm2] :fn-mode]
            [:e [:hsa DingTalk] :fn-mode]
            [:f [:hsa PathFinder] :fn-mode]
+           [:r [:hsa FeiShu] :fn-mode]
 
           ; Window Manage
           ;;  [:1 :!Tup_arrow :fn-mode]
