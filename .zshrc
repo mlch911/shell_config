@@ -246,6 +246,9 @@ export FZF_COMPLETION_TRIGGER='\'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Byobu
+export BYOBU_PREFIX=/usr/local
+
 VimDirectory() {
 	dir=$(echo $1 | grep -oP '.*(?=\/.*$)')
 	if [ ! -f $dir ]; then
