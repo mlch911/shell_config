@@ -32,9 +32,14 @@ ln -s -f ~/.config/config/vim/init.vim				~/.config/nvim/init.vim
 ln -s -f ~/.config/config/vim/config				~/.config/nvim/
 # coc
 ln -s -f ~/.config/config/vim/coc-settings.json		~/.config/nvim/coc-settings.json
+# byobu
+if [ -x `command -v byobu` ]; then
+	ln -sfF ~/.config/config/.byobu					~/
+fi
 
 # Mac
 if [ $os == "mac" ]; then
 	ln -s -f ~/.config/config/mac/karabiner.edn		~/.config/karabiner.edn
 	ln -sfF ~/.config/config/mac/.hammerspoon		~
+	ln -sfF ~/.config/config/.byobu					~
 fi
