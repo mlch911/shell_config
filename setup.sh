@@ -36,6 +36,8 @@ ln -s -f ~/.config/config/vim/coc-settings.json		~/.config/nvim/coc-settings.jso
 if [ -x `command -v byobu` ]; then
 	ln -sfF ~/.config/config/.byobu					~/
 fi
+# ranger
+ln -sfF ~/.config/config/ranger					~/.config/
 
 # Mac
 if [ $os == "mac" ]; then
