@@ -10,55 +10,63 @@
              ;; :focus      "/usr/local/bin/yabai -m display --focus \"%s\" & /usr/local/bin/yabai -m space --focus \"%s\""
              :hs "open -g hammerspoon://%s"
              :hsa "open -g hammerspoon://launchOrHide?name=%s"}
- :main
- [{:des "Space_Fn"
-   :rules [[:##spacebar ["fn-mode" 1] nil {:afterup ["fn-mode" 0]
-                                           :alone :spacebar}]
-           ; delete
-           [:delete_or_backspace :delete_forward :fn-mode]
 
-           ; 方向键
-           [:!Ti [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow] :fn-mode]
-           [:!Tk [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow] :fn-mode]
-           [:##i :up_arrow :fn-mode]
-           [:##k :down_arrow :fn-mode]
-           [:##j :left_arrow :fn-mode]
-           [:##l :right_arrow :fn-mode]
+ :layers {;;   :space_mode {:key :spacebarl}
+          :space_shift_mode {:key :left_shift :condi :space_mode}}
 
-          ; 切换输入法
-           [:tab :!Cspacebar :fn-mode]
-          ; 打开App
-          ;;  [:w :!TCw :fn-mode]
-           [:w [:hsa Wechat] :fn-mode]
-           [:z [:hsa mqq] :fn-mode]
-          ;;  [:t [:hsa Telegram] :fn-mode]
-           [:t [:hsa iTerm2] :fn-mode]
-           ;[:e [:hsa DingTalk] :fn-mode]
-           [:f [:hsa PathFinder] :fn-mode]
-           [:e [:hsa FeiShu] :fn-mode]
+ :main [;; 使用 space 按下，触发 space_mode，无所谓按键顺序
+        {:des "Space-mode"
+         :rules [[:##spacebar ["space_mode" 1] nil {:afterup ["space_mode" 0]
+                                                    :alone :spacebar}]]}
 
-          ; Window Manage
-          ;;  [:1 :!Tup_arrow :fn-mode]
-          ;;  [:2 :!Tdown_arrow :fn-mode]
+        {:des "Space-mode - 方向键"
+         :rules [[:!Ti [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow] :space_mode]
+                 [:!Tk [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow] :space_mode]
+                 [:##i :up_arrow :space_mode]
+                 [:##k :down_arrow :space_mode]
+                 [:##j :left_arrow :space_mode]
+                 [:##l :right_arrow :space_mode]]}
 
-          ; Media Control
-           [:n :play_or_pause :fn-mode]
-           [:m :mute :fn-mode]
-           [:comma :rewind :fn-mode]
-           [:period :fastforward :fn-mode]
-           [:up_arrow :volume_increment :fn-mode]
-           [:down_arrow :volume_decrement :fn-mode]
+        {:des "Space-mode - 打开App"
+         :rules [[:w [:hsa Wechat] :space_mode]
+                 [:z [:hsa mqq] :space_mode]
+                ;;  [:t [:hsa Telegram] :space_mode]
+                 [:t [:hsa iTerm2] :space_mode]
+                 [:f [:hsa PathFinder] :space_mode]
+                 [:e [:hsa FeiShu] :space_mode]]}
 
-          ; 数字 -> F区
-           [:1 :f1 :fn-mode]
-           [:2 :f2 :fn-mode]
-           [:3 :f3 :fn-mode]
-           [:4 :f4 :fn-mode]
-           [:5 :f5 :fn-mode]
-           [:6 :f6 :fn-mode]
-           [:7 :f7 :fn-mode]
-           [:8 :f8 :fn-mode]
-           [:9 :f9 :fn-mode]
-           [:0 :f10 :fn-mode]
-           [:hyphen :f11 :fn-mode]
-           [:equal_sign :f12 :fn-mode]]}]}
+
+        {:des "Space-mode - Media Control"
+         :rules [[:n :play_or_pause :space_mode]
+                 [:m :mute :space_mode]
+                 [:comma :rewind :space_mode]
+                 [:period :fastforward :space_mode]
+                 [:up_arrow :volume_increment :space_mode]
+                 [:down_arrow :volume_decrement :space_mode]]}
+
+
+        {:des "Space-mode - F区"
+         :rules [[:1 :f1 :space_mode]
+                 [:2 :f2 :space_mode]
+                 [:3 :f3 :space_mode]
+                 [:4 :f4 :space_mode]
+                 [:5 :f5 :space_mode]
+                 [:6 :f6 :space_mode]
+                 [:7 :f7 :space_mode]
+                 [:8 :f8 :space_mode]
+                 [:9 :f9 :space_mode]
+                 [:0 :f10 :space_mode]
+                 [:hyphen :f11 :space_mode]
+                 [:equal_sign :f12 :space_mode]]}
+
+
+        {:des "Space_Fn - Others"
+         :rules [; delete
+                 [:delete_or_backspace :delete_forward :space_mode]
+
+                 ; Window Manage
+                 [:1 :!Tup_arrow :space_mode]
+                 [:2 :!Tdown_arrow :space_mode]
+
+                ; 切换输入法
+                 [:tab :!Cspacebar :space_mode]]}]}

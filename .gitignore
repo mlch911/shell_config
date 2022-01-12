@@ -1,2 +1,4 @@
 .zshrc_machine_specific
 .byobu/.ssh-agent
+mac/.hammerspoon/.clj-kondo
+mac/.hammerspoon/.lsp
