@@ -1,3 +1,32 @@
+;; CheatSheet
+;; !  | means mandatory -   modifier(s) alone when pressend change behavior
+;; #  | means optional  -   modifiers are optional (but atleast one necessary)
+
+;; :!Ca is keycode :a and prefix a with !C
+
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+
+;; ## | optional any
+;; !! | command + control + optional + shift (hyper)
+
+;; to understand better how modifiers work in karabiner
+;; karabiner definition of mandatory and optional
+;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/modifiers/
+
+;; need to prefix C T O S F with ! or #
+;;
+;; code for all this:
+;; https://github.com/yqrashawn/GokuRakuJoudo/blob/b9b334a187379f9bc8182ad59e2cca2a1789e9c0/src/karabiner_configurator/keys.clj#L68
+
+
 {:templates {:launch     "osascript -e 'tell application \"Alfred 4\" to run trigger \"launch%s\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'"
              :alf        "open /Applications/Alfred\\ 4.app && osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\"'"
              :km         "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
@@ -11,13 +40,20 @@
              :hs "open -g hammerspoon://%s"
              :hsa "open -g hammerspoon://launchOrHide?name=%s"}
 
- :layers {;;   :space_mode {:key :spacebarl}
-          :space_shift_mode {:key :left_shift :condi :space_mode}}
+;;  :layers {:space_mode {:key :spacebar}
+;;           :enter_mode {:key :return_or_enter}}
+
+ :devices {:hatsu [{:vendor_id 6421 :product_id 61166}]}
 
  :main [;; 使用 space 按下，触发 space_mode，无所谓按键顺序
         {:des "Space-mode"
          :rules [[:##spacebar ["space_mode" 1] nil {:afterup ["space_mode" 0]
                                                     :alone :spacebar}]]}
+
+        ;; {:des "Enter-mode"
+        ;;  :rules [[:##return_or_enter ["enter_mode" 1] nil {:afterup ["enter_mode" 0]
+        ;;                                                    :alone :return_or_enter
+        ;;                                                    :condi :hatsu}]]}
 
         {:des "Space-mode - 方向键"
          :rules [[:!Ti [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow] :space_mode]
@@ -26,6 +62,10 @@
                  [:##k :down_arrow :space_mode]
                  [:##j :left_arrow :space_mode]
                  [:##l :right_arrow :space_mode]]}
+        
+        {:des "Space-mode - Page键"
+         :rules [[:up_arrow :page_up :space_mode]
+                 [:down_arrow :page_down :space_mode]]}
 
         {:des "Space-mode - 打开App"
          :rules [[:w [:hsa Wechat] :space_mode]
@@ -41,26 +81,28 @@
                  [:m :mute :space_mode]
                  [:comma :rewind :space_mode]
                  [:period :fastforward :space_mode]
-                 [:up_arrow :volume_increment :space_mode]
-                 [:down_arrow :volume_decrement :space_mode]]}
+                 [:!Cup_arrow :volume_increment :space_mode]
+                 [:!Cdown_arrow :volume_decrement :space_mode]
+                 [:!Qup_arrow :volume_increment :space_mode]
+                 [:!Qdown_arrow :volume_decrement :space_mode]]}
 
 
         {:des "Space-mode - F区"
-         :rules [[:1 :f1 :space_mode]
-                 [:2 :f2 :space_mode]
-                 [:3 :f3 :space_mode]
-                 [:4 :f4 :space_mode]
-                 [:5 :f5 :space_mode]
-                 [:6 :f6 :space_mode]
-                 [:7 :f7 :space_mode]
-                 [:8 :f8 :space_mode]
-                 [:9 :f9 :space_mode]
-                 [:0 :f10 :space_mode]
-                 [:hyphen :f11 :space_mode]
-                 [:equal_sign :f12 :space_mode]]}
+         :rules [[:##1 :f1 [:space_mode]]
+                 [:##2 :f2 [:space_mode]]
+                 [:##3 :f3 [:space_mode]]
+                 [:##4 :f4 [:space_mode]]
+                 [:##5 :f5 [:space_mode]]
+                 [:##6 :f6 [:space_mode]]
+                 [:##7 :f7 [:space_mode]]
+                 [:##8 :f8 [:space_mode]]
+                 [:##9 :f9 [:space_mode]]
+                 [:##0 :f10 [:space_mode]]
+                 [:hyphen :f11 [:space_mode]]
+                 [:equal_sign :f12 [:space_mode]]]}
 
 
-        {:des "Space_Fn - Others"
+        {:des "Space-mode - Others"
          :rules [; delete
                  [:delete_or_backspace :delete_forward :space_mode]
 
@@ -69,4 +111,34 @@
                  [:2 :!Tdown_arrow :space_mode]
 
                 ; 切换输入法
-                 [:tab :!Cspacebar :space_mode]]}]}
+                 [:tab :!Cspacebar :space_mode]]}
+
+        {:des "Enter-mode - F区&数字"
+         :rules [;F区
+                 [:##escape :f1 :enter_mode]
+                 [:##q :f2 :enter_mode]
+                 [:##w :f3 :enter_mode]
+                 [:##e :f4 :enter_mode]
+                 [:##r :f5 :enter_mode]
+                 [:##t :f6 :enter_mode]
+                 [:##y :f7 :enter_mode]
+                 [:##u :f8 :enter_mode]
+                 [:##i :f9 :enter_mode]
+                 [:##o :f10 :enter_mode]
+                 [:##p :f11 :enter_mode]
+                 [:##backslash :f12 :enter_mode]
+                 ;数字
+                 [:##tab :1 :enter_mode]
+                 [:##a :2 :enter_mode]
+                 [:##s :3 :enter_mode]
+                 [:##d :4 :enter_mode]
+                 [:##f :5 :enter_mode]
+                 [:##g :6 :enter_mode]
+                 [:##h :7 :enter_mode]
+                 [:##j :8 :enter_mode]
+                 [:##k :9 :enter_mode]
+                 [:##l :0 :enter_mode]
+                 [:##semicolon :hyphen :enter_mode]
+                 [:##quote :equal_sign :enter_mode]
+                 ;`
+                 [:##z :grave_accent_and_tilde :enter_mode]]}]}
