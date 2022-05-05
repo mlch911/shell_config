@@ -70,7 +70,7 @@
         {:des "Space-mode - 打开App"
          :rules [[:w [:hsa Wechat] :space_mode]
                  [:z [:hsa mqq] :space_mode]
-                ;;  [:t [:hsa Telegram] :space_mode]
+                 [:r [:hsa Telegram] :space_mode]
                  [:t [:hsa iTerm2] :space_mode]
                  [:f [:hsa PathFinder] :space_mode]
                  [:e [:hsa FeiShu] :space_mode]]}

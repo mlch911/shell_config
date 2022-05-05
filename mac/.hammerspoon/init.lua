@@ -62,7 +62,7 @@ config.applications = {
 		bundleID = 'com.alibaba.DingTalkMac',
 	},
 	["Telegram"] = {
-		bundleID = 'com.tdesktop.Telegram',
+		bundleID = 'ru.keepcoder.Telegram',
 	},
 	["FeiShu"] = {
 		bundleID = 'com.electron.lark',
