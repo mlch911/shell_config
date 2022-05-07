@@ -44,4 +44,7 @@ if [ $os == "mac" ]; then
 	ln -s -f ~/.config/config/mac/karabiner.edn		~/.config/karabiner.edn
 	ln -sfF ~/.config/config/mac/.hammerspoon		~
 	ln -sfF ~/.config/config/.byobu					~
+	ln -sfF ~/.config/config/lazygit/config.yml		~/Library/Application\ Support/lazygit/config.yml
+elif [ $os == "Linux" ]; then
+	ln -sfF ~/.config/config/lazygit/config.yml		~/.config/lazygit/config.yml
 fi

@@ -2,3 +2,5 @@
 .byobu/.ssh-agent
 mac/.hammerspoon/.clj-kondo
 mac/.hammerspoon/.lsp
+mac/.clj-kondo/.cache
+mac/.lsp/.cache

@@ -1,0 +1,19 @@
+keybinding:
+  universal:
+    prevBlock-alt: 'j'
+    nextBlock-alt: 'l'
+    prevItem-alt: 'i'
+    nextItem-alt: 'k'
+    scrollLeft: 'J'
+    scrollRight: 'L'
+    scrollUpMain-alt1: 'I'
+    scrollDownMain-alt1: 'K'
+  files:
+    ignoreFile: '<c-i>'
+  branches:
+    viewGitFlowOptions: '<c-i>'
+  commits:
+    moveDownCommit: '<c-k>'
+    moveUpCommit: '<c-i>'
+  submodules:
+    init: '<c-i>'
