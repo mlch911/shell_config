@@ -58,6 +58,10 @@ config.applications = {
 		bundleID = 'com.tencent.mqq',
 		hyper_key = 'z'
 	},
+	['qqdesktop'] = {
+		bundleID = 'com.tencent.qqdesktop',
+		hyper_key = 'z'
+	},
 	["DingTalk"] = {
 		bundleID = 'com.alibaba.DingTalkMac',
 	},
@@ -110,6 +114,7 @@ config.funcs = {}
 -- hyper:bindKey({}, 'k', {}, 'down')
 
 hs.logger.defaultLogLevel = 'debug'
+logger = hs.logger.new('')
 
 hs.urlevent.bind('launchOrHide', function (eventName, params)
 	local app_bundle_id = config.applications[params["name"]].bundleID
@@ -117,12 +122,12 @@ hs.urlevent.bind('launchOrHide', function (eventName, params)
 
 	if not app then
 		hs.application.open(app_bundle_id)
-	elseif app:isFrontmost() and #app:visibleWindows() > 0 then
+	elseif app:isFrontmost() and (#app:visibleWindows() > 0 or app:focusedWindow()) then
 		app:hide()
 		sleep(0.1)
 		if not app:isHidden() then
 			hs.dialog.blockAlert('message', 'informativeText')
-			hs.logger:d(app:name() + ' doesn\'t hide, close it now !')
+			logger:e(app:name() + ' doesn\'t hide, close it now !')
 			for _, window in pairs(app:allWindows()) do
 				window:close()
 			end
@@ -132,10 +137,10 @@ hs.urlevent.bind('launchOrHide', function (eventName, params)
 	end
 end)
 
-function sleep (a) 
-    local sec = tonumber(os.clock() + a); 
-    while (os.clock() < sec) do 
-    end 
+function sleep (a)
+    local sec = tonumber(os.clock() + a);
+    while (os.clock() < sec) do
+    end
 end
 
 function wait(time)

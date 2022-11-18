@@ -43,7 +43,8 @@
 ;;  :layers {:space_mode {:key :spacebar}
 ;;           :enter_mode {:key :return_or_enter}}
 
- :devices {:hatsu [{:vendor_id 6421 :product_id 61166}]}
+ :devices {:hatsu [{:vendor_id 6421 :product_id 61166}]
+           :gpw [{:vendor_id 1133 :product_id 50489}]}
 
  :main [;; 使用 space 按下，触发 space_mode，无所谓按键顺序
         {:des "Space-mode"
@@ -62,19 +63,19 @@
                  [:##k :down_arrow :space_mode]
                  [:##j :left_arrow :space_mode]
                  [:##l :right_arrow :space_mode]]}
-        
+
         {:des "Space-mode - Page键"
          :rules [[:up_arrow :page_up :space_mode]
                  [:down_arrow :page_down :space_mode]]}
 
         {:des "Space-mode - 打开App"
          :rules [[:w [:hsa Wechat] :space_mode]
-                 [:z [:hsa mqq] :space_mode]
                  [:r [:hsa Telegram] :space_mode]
+                 [:z [:hsa qqdesktop] :space_mode]
                  [:t [:hsa iTerm2] :space_mode]
                  [:f [:hsa PathFinder] :space_mode]
-                 [:e [:hsa FeiShu] :space_mode]]}
-
+                 [:e [:hsa FeiShu] :space_mode]
+                 ]}
 
         {:des "Space-mode - Media Control"
          :rules [[:n :play_or_pause :space_mode]
@@ -85,7 +86,6 @@
                  [:!Cdown_arrow :volume_decrement :space_mode]
                  [:!Qup_arrow :volume_increment :space_mode]
                  [:!Qdown_arrow :volume_decrement :space_mode]]}
-
 
         {:des "Space-mode - F区"
          :rules [[:##1 :f1 [:space_mode]]
@@ -98,9 +98,8 @@
                  [:##8 :f8 [:space_mode]]
                  [:##9 :f9 [:space_mode]]
                  [:##0 :f10 [:space_mode]]
-                 [:hyphen :f11 [:space_mode]]
-                 [:equal_sign :f12 [:space_mode]]]}
-
+                 [:##hyphen :f11 [:space_mode]]
+                 [:##equal_sign :f12 [:space_mode]]]}
 
         {:des "Space-mode - Others"
          :rules [; delete
@@ -112,6 +111,9 @@
 
                 ; 切换输入法
                  [:tab :!Cspacebar :space_mode]]}
+
+        {:des "Mouse - Side Button"
+         :rules [[{:pkey :button5} :!Tup_arrow]]}
 
         {:des "Enter-mode - F区&数字"
          :rules [;F区
